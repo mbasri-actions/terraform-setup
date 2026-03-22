@@ -20,7 +20,7 @@ runs:
     - name: Install tfswitch
       shell: bash
       run: |
-        curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/master/install.sh | bash
+        curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/master/install.sh | sudo bash
 
     - name: Switch Terraform version
       shell: bash
