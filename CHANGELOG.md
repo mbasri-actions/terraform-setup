@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.1.4](https://github.com/mbasri-actions/terraform-setup/compare/v1.1.3...v1.1.4) (2026-03-22)
+
+- Replaced tfswitch with the official setup Terraform action for improved reliability
+
 ## [v1.1.3](https://github.com/mbasri-actions/terraform-setup/compare/v1.1.2...v1.1.3) (2026-03-22)
 
 - Fixed tfswitch execution by specifying the binary path for better reliability
