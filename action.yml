@@ -17,15 +17,8 @@ runs:
     - name: Checkout
       uses: actions/checkout@v6
 
-    - name: Install tfswitch
-      shell: bash
-      run: |
-        curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/master/install.sh | sudo bash
-
-    - name: Switch Terraform version
-      shell: bash
-      working-directory: ${{ inputs.working-directory }}
-      run: sudo tfswitch -b /usr/local/bin/terraform
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v4
 
     - name: Terraform Format
       shell: bash
