@@ -11,6 +11,10 @@ inputs:
     description: 'The Terraform Cloud workspace name'
     required: true
 
+  github-token:
+    description: 'GitHub token for accessing private modules'
+    required: true
+
 runs:
   using: 'composite'
   steps:
@@ -19,6 +23,10 @@ runs:
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v4
+
+    - name: Configure git for private modules
+      shell: bash
+      run: git config --global url."https://x-access-token:${{ inputs.github-token }}@github.com/".insteadOf "https://github.com/"
 
     - name: Terraform Format
       shell: bash
