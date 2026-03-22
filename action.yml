@@ -1,0 +1,45 @@
+name: 'Terraform Setup'
+description: 'Composite GitHub Action for Terraform operations — setup, init, and common CI tasks'
+
+inputs:
+  working-directory:
+    description: 'The working directory containing Terraform files'
+    required: true
+    default: '.'
+
+  environment:
+    description: 'The Terraform Cloud workspace name'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v6
+
+    - name: Install tfswitch
+      shell: bash
+      run: |
+        curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/master/install.sh | bash
+
+    - name: Switch Terraform version
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      run: tfswitch
+
+    - name: Terraform Format
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      run: terraform fmt -check -recursive
+
+    - name: Terraform Init
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      run: terraform init
+      env:
+        TF_WORKSPACE: ${{ inputs.environment }}
+
+    - name: Terraform Validate
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      run: terraform validate
