@@ -25,7 +25,7 @@ runs:
     - name: Switch Terraform version
       shell: bash
       working-directory: ${{ inputs.working-directory }}
-      run: tfswitch
+      run: sudo tfswitch
 
     - name: Terraform Format
       shell: bash
