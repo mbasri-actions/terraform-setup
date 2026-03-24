@@ -12,7 +12,7 @@ permissions:
   models: read
 
 jobs:
-  gitversion-and-push:
+  semver:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v6
@@ -21,4 +21,4 @@ jobs:
         fetch-tags: true
 
     - name: Generate semantic version and tag repository
-      uses: mbasri-actions/gitversion@v1
+      uses: mbasri-actions/semver@v1
