@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.3.1](https://github.com/mbasri-actions/terraform-setup/compare/v1.3.0...v1.3.1) (2026-03-24)
+
+- Refactored gitversion to semver for improved clarity and consistency
+
 ## [v1.3.0](https://github.com/mbasri-actions/terraform-setup/compare/v1.2.0...v1.3.0) (2026-03-22)
 
 - Added auto-detection of Terraform version from project files
